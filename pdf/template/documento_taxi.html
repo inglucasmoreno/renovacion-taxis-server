@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    
+<link rel="stylesheet" href="template.css">
+
+<style>
+    
+    /* CSS de PDF */
+    
+    * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+</style>
+
+<head>
+    <mate charest="utf-8" />
+    <title> Formulario auto </title>
+</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <div style="font-size: 20px; font-weight: bold;"> Datos de licencia </div>
+    <p> <span style="font-weight: bold"> Número licencia: </span> {{ nro_licencia }} </p>
+    <p> <span style="font-weight: bold"> Permisionario: </span> </span> {{ permisionario.nombre }} - {{ permisionario.tipo_identificacion }} {{ permisionario.identificacion }} </p>
+    <p> <span style="font-weight: bold"> Titular: </span> </span> {{ titular.nombre }} - {{ titular.tipo_identificacion }} {{ titular.identificacion }} </p>
+    <p style="font-weight: bold"> Choferes </p>
+    {{#each choferes}}
+    <p> {{ nombre }} - {{ tipo_identificacion }} {{ identificacion }}  </p>
+    {{/each}}
+</body>
+
+</html>
