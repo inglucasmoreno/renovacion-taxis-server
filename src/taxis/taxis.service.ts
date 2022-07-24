@@ -51,8 +51,6 @@ export class TaxisService {
 
       const personas: any[] = licenciaDB[0];
 
-      console.log(personas);
-
       let titular = null;
       let permisionario = null;
       let choferes: any[] = [];
@@ -64,8 +62,6 @@ export class TaxisService {
         if(tipo_persona === 'permisionario') permisionario = persona;
         if(tipo_persona === 'chofer') choferes.push(persona);
       });
-
-      console.log(titular);
 
       const dataLicencia = {
           nro_licencia: licencia,
