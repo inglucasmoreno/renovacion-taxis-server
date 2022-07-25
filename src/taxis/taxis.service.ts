@@ -26,48 +26,35 @@ export class TaxisService {
         
         const dataLicencia = {
             nro_licencia: licencia,
-            datos: licenciaDB[0]
+            datos: licenciaDB[0],
+            vehiculo: vehiculo[0][0]
         }
 
         return dataLicencia;
    
     }
 
-    // Generar documento para taxi
-    async generarDocumento(licencia: string): Promise<String> {
+    // Generar tarjeta para taxi
+    async generarTarjeta(data: any): Promise<String> {
 
-      // Conexion a la base de datos
-      const conn = await connect();
-      
-      // Se traen los datos de la persona    
-      const vehiculo: any = await conn.query("SELECT * FROM vehiculos WHERE nro_licencia=?",[licencia]);
-      if(!vehiculo[0][0]) throw new NotFoundException('No se encontraron datos');
-      const idVehiculo = vehiculo[0][0].id_vehiculo;
+      // Sanitizacion de valores
 
-      // Informacion de personas (CHOFER, PERMISIONARIO y TITULAR)
-      const licenciaDB: any = await conn.query("SELECT relaciones.tipo_persona, personas.nombre, personas.tipo_identificacion, personas.identificacion FROM relaciones INNER JOIN personas ON relaciones.id_persona = personas.id_persona WHERE relaciones.id_vehiculo=? AND relaciones.activo=1",[idVehiculo]);
-  
-      conn.end();
+      let choferesPDF = [];
 
-      const personas: any[] = licenciaDB[0];
+      let index = 0;
 
-      let titular = null;
-      let permisionario = null;
-      let choferes: any[] = [];
-
-      personas.map( persona => {
-        console.log(persona);
-        const {tipo_persona} = persona;
-        if(tipo_persona === 'titular') titular = persona;
-        if(tipo_persona === 'permisionario') permisionario = persona;
-        if(tipo_persona === 'chofer') choferes.push(persona);
+      data.choferes.map( chofer => {
+        index += 1;
+        if(index <= 3) choferesPDF.push({nombre: chofer.nombre.toUpperCase()})
       });
 
-      const dataLicencia = {
-          nro_licencia: licencia,
-          titular,
-          permisionario,
-          choferes
+      const dataPDF = {
+        nro_licencia: data.nro_licencia.toUpperCase(),
+        titular: data.titular?.nombre.toUpperCase(),
+        permisionario: data.permisionario?.nombre.toUpperCase(),
+        dominio: data.vehiculo?.dominio.toUpperCase(),
+        marca: data.vehiculo?.marca.toUpperCase(),
+        choferes: choferesPDF
       }
 
       // Tempalte
@@ -76,7 +63,7 @@ export class TaxisService {
       // Opciones de documento
       var options = {
         format: 'A4',
-        orientation: 'portrait',
+        orientation: 'landscape',
         border: "10mm",
         footer: {
           height: "28mm",
@@ -87,7 +74,7 @@ export class TaxisService {
       // Configuraciones de documento
       var document = {
         html: html,
-        data: dataLicencia,
+        data: dataPDF,
         path: './public/pdf/documento_taxi.pdf',
         type: ""
       }

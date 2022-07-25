@@ -6,14 +6,12 @@ export class TaxisController {
     
     constructor(private taxisService: TaxisService){}
 
-    // Generar documento
-    @Get('/licencia/documento/:licencia')
-    async generarDocumento(@Res() res, @Param() params){
-        console.log(params);
-        const { licencia } = params;
-        await this.taxisService.generarDocumento(licencia);
+    // Generar tarjeta
+    @Post('/generar-tarjeta')
+    async generarTarjeta(@Res() res, @Body() body){
+        await this.taxisService.generarTarjeta(body);
         res.status(HttpStatus.OK).json({
-            message: 'Documento generado correctamente',
+            message: 'Tarjeta generada correctamente',
         })
     } 
     
