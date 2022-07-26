@@ -22,26 +22,32 @@
 </head>
 
 <body style="font-family: Arial, Helvetica, sans-serif;">
-    <img src="http://localhost:3000/pdf/linea.png" alt=" Linea">
+    <img style="width: 400px" src="http://localhost:3000/pdf/linea.png" alt=" Linea">
     <br>
-    <img style="margin-left: 70px;" src="http://localhost:3000/pdf/titulo_tarjeta.png" alt="Linea"> 
-    <img style="margin-left: 400px;" src="http://localhost:3000/pdf/logo_municipalidad.png" alt="Logo municipalidad">    
+    <img style="margin-left: 20px; margin-top: 8px; position: absolute; width: 160px;" src="http://localhost:3000/pdf/titulo_tarjeta.png" alt="Linea"> 
+    <img style="margin-left: 450px; position: absolute; width: 300px;" src="http://localhost:3000/pdf/logo_municipalidad.png" alt="Logo municipalidad">    
     <br>
-    <img style="margin-left: 70px; position: absolute;" src="http://localhost:3000/pdf/subtitulo.png" alt="Subtitulo"> 
-    <p style="margin-left: 70px; font-size: 14px; position: absolute; margin-top: 60px; font-weight: bold;"> LICENCIA DE TAXI N° {{ nro_licencia }} </p>
-    <p style="margin-left: 70px; font-size: 12px; position: absolute; margin-top: 80px;"> TITULAR: {{ titular }} </p>
-    <p style="margin-left: 70px; font-size: 12px; position: absolute; margin-top: 100px;"> VEHÍCULO: {{ marca }} </p>
-    <p style="margin-left: 70px; font-size: 12px; position: absolute; margin-top: 120px; width: 535px; border-bottom: 3px solid black; padding-bottom: 10px;"> DOMINIO: {{ dominio }} </p>
-    <img style="margin-left:700px; position: absolute; margin-top: 32px; padding: 0px;" src="http://localhost:3000/pdf/tarifas.png" alt="Tarifas"> 
+    <img style="margin-left: 20px; margin-top:40px; position: absolute; width:400px" src="http://localhost:3000/pdf/subtitulo.png" alt="Subtitulo"> 
+    <p style="margin-left: 20px; font-size: 16px; position: absolute; margin-top: 80px; font-weight: bold;"> LICENCIA DE TAXI N° {{ nro_licencia }} </p>
+    <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 105px;"> TITULAR: {{ titular }} </p>
+    <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 125px;"> VEHÍCULO: {{ marca }} </p>
+    <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 145px; width: 400px; border-bottom: 3px solid black; padding-bottom: 10px;"> DOMINIO: {{ dominio }} </p>
+    <img style="margin-left:470px; position: absolute; width: 260px; margin-top: 58px; padding: 0px;" src="http://localhost:3000/pdf/tarifas.png" alt="Tarifas"> 
 
-    <span style="position:absolute; padding: 35px; border: 2px solid black; margin-left: 70px; margin-top: 160px; color: white">RR</span>
-    <span style="font-size: 12px; position:absolute; margin-top: 180px; margin-left: 190px;"> <span style="font-weight: bold;"> CHOFER: </span> DE PRUEBA </span>
+    {{#ifCond chofer1 '!==' null}}
+    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 180px; color: white">RR</span>
+    <span style="font-size: 12px; position:absolute; margin-top: 200px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer1 }} </span>
+    {{/ifCond}}
 
-    <span style="position:absolute; padding: 35px; border: 2px solid black; margin-left: 70px; margin-top: 290px; color: white">RR</span>
-    <span style="font-size: 12px; position:absolute; margin-top: 310px; margin-left: 190px;"> <span style="font-weight: bold;"> CHOFER: </span> DE PRUEBA </span>
+    {{#ifCond chofer2 '!==' null}}
+    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 260px; color: white">RR</span>
+    <span style="font-size: 12px; position:absolute; margin-top: 280px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer2 }} </span>
+    {{/ifCond}}
 
-    <span style="position:absolute; padding: 35px; border: 2px solid black; margin-left: 70px; margin-top: 420px; color: white">RR</span>
-    <span style="font-size: 12px; position:absolute; margin-top: 440px; margin-left: 190px;"> <span style="font-weight: bold;"> CHOFER: </span> DE PRUEBA </span>
+    {{#ifCond chofer3 '!==' null}}
+    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 340px; color: white">RR</span>
+    <span style="font-size: 12px; position:absolute; margin-top: 360px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer3 }} </span>
+    {{/ifCond}}
 
 </body>
 

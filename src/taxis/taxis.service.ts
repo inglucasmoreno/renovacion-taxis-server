@@ -42,10 +42,16 @@ export class TaxisService {
       let choferesPDF = [];
 
       let index = 0;
+      let chofer1 = null;
+      let chofer2 = null;
+      let chofer3 = null;
 
       data.choferes.map( chofer => {
         index += 1;
-        if(index <= 3) choferesPDF.push({nombre: chofer.nombre.toUpperCase()})
+        // if(index <= 3) choferesPDF.push({nombre: chofer.nombre.toUpperCase()})
+        if(index === 1) chofer1 = chofer.nombre.toUpperCase();
+        if(index === 2) chofer2 = chofer.nombre.toUpperCase();
+        if(index === 3) chofer3 = chofer.nombre.toUpperCase();
       });
 
       const dataPDF = {
@@ -54,7 +60,9 @@ export class TaxisService {
         permisionario: data.permisionario?.nombre.toUpperCase(),
         dominio: data.vehiculo?.dominio.toUpperCase(),
         marca: data.vehiculo?.marca.toUpperCase(),
-        choferes: choferesPDF
+        chofer1,
+        chofer2,
+        chofer3
       }
 
       // Tempalte
