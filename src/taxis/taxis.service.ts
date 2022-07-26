@@ -15,7 +15,7 @@ export class TaxisService {
         const conn = await connect();
         
         // Se traen los datos de la persona    
-        const vehiculo: any = await conn.query("SELECT * FROM vehiculos WHERE nro_licencia=?",[licencia]);
+        const vehiculo: any = await conn.query("SELECT * FROM vehiculos WHERE nro_licencia=? AND activo=1 AND id_tipo=1",[licencia]);
         if(!vehiculo[0][0]) throw new NotFoundException('No se encontraron datos');
         const idVehiculo = vehiculo[0][0].id_vehiculo;
 
