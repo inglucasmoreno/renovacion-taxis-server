@@ -30,23 +30,24 @@
     <img style="margin-left: 20px; margin-top:40px; position: absolute; width:400px" src="http://localhost:3000/pdf/subtitulo.png" alt="Subtitulo"> 
     <p style="margin-left: 20px; font-size: 16px; position: absolute; margin-top: 80px; font-weight: bold;"> LICENCIA DE TAXI N° {{ nro_licencia }} </p>
     <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 105px;"> TITULAR: {{ titular }} </p>
-    <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 125px;"> VEHÍCULO: {{ marca }} </p>
-    <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 145px; width: 400px; border-bottom: 3px solid black; padding-bottom: 10px;"> DOMINIO: {{ dominio }} </p>
-    <img style="margin-left:470px; position: absolute; width: 260px; margin-top: 58px; padding: 0px;" src="http://localhost:3000/pdf/tarifas.png" alt="Tarifas"> 
+    <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 125px;"> PERMISIONARIO: {{ permisionario }} </p>
+    <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 145px;"> VEHÍCULO: {{ marca }} </p>
+    <p style="margin-left: 20px; font-size: 12px; position: absolute; margin-top: 165px; width: 400px; border-bottom: 3px solid black; padding-bottom: 10px;"> DOMINIO: {{ dominio }} </p>
+    <img style="margin-left:470px; position: absolute; width: 260px; margin-top: 78px; padding: 0px;" src="http://localhost:3000/pdf/tarifas.png" alt="Tarifas"> 
 
     {{#ifCond chofer1 '!==' null}}
-    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 180px; color: white">RR</span>
-    <span style="font-size: 12px; position:absolute; margin-top: 200px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer1 }} </span>
+    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 200px; color: white">RR</span>
+    <span style="font-size: 12px; position:absolute; margin-top: 220px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer1 }} </span>
     {{/ifCond}}
 
     {{#ifCond chofer2 '!==' null}}
-    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 260px; color: white">RR</span>
-    <span style="font-size: 12px; position:absolute; margin-top: 280px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer2 }} </span>
+    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 280px; color: white">RR</span>
+    <span style="font-size: 12px; position:absolute; margin-top: 300px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer2 }} </span>
     {{/ifCond}}
 
     {{#ifCond chofer3 '!==' null}}
-    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 340px; color: white">RR</span>
-    <span style="font-size: 12px; position:absolute; margin-top: 360px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer3 }} </span>
+    <span style="position:absolute; padding: 20px; border: 2px solid black; margin-left: 20px; margin-top: 360px; color: white">RR</span>
+    <span style="font-size: 12px; position:absolute; margin-top: 380px; margin-left: 100px;"> <span style="font-weight: bold;"> CHOFER: </span> {{ chofer3 }} </span>
     {{/ifCond}}
 
 </body>
