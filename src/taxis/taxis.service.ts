@@ -74,7 +74,7 @@ export class TaxisService {
         orientation: 'landscape',
         border: "10mm",
         footer: {
-          height: "28mm",
+          height: "0",
           contents: {}
         }
       }
